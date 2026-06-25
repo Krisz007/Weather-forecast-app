@@ -1,0 +1,57 @@
+// Színek
+$sky-top: #5fa8e8;
+$text-white: #ffffff;
+$text-muted: rgba(255, 255, 255, 0.95);
+
+// Fehér áttetsző rétegek – glass-felületek, szegélyek és hover állapotok.
+// Egységes átlátszósági skála, hogy a hasonló értékek ne szóródjanak szét.
+$white-08: rgba(255, 255, 255, 0.08);
+$white-10: rgba(255, 255, 255, 0.1);
+$white-12: rgba(255, 255, 255, 0.12);
+$white-16: rgba(255, 255, 255, 0.16);
+$white-20: rgba(255, 255, 255, 0.2);
+$white-24: rgba(255, 255, 255, 0.24);
+$white-30: rgba(255, 255, 255, 0.3);
+$white-50: rgba(255, 255, 255, 0.5);
+$white-60: rgba(255, 255, 255, 0.6);
+
+// Üveg-hatású felületek
+$glass-bg: $white-16;
+$glass-border: $white-30;
+
+// Modális és világos felületek
+$modal-overlay: rgba(10, 25, 45, 0.55);
+$modal-ink: #1f3a52;
+$modal-ink-muted: #5a7184;
+$danger: #ff6b6b;
+
+// Háttér alapértelmezett (adat betöltése előtt)
+$bg-default: linear-gradient(160deg, #1c84ef 0%, #48b0e8 100%);
+
+// Lekerekítés
+$radius-sm: 12px;
+$radius: 16px;
+$radius-xl: 28px;
+$radius-pill: 999px;
+
+// Térköz
+$space-xs: 4px;
+$space-sm: 8px;
+$space-md: 16px;
+$space-lg: 24px;
+$space-xl: 40px;
+
+// Tipográfia
+$font-family: "Inter",
+  system-ui,
+  -apple-system,
+  "Segoe UI",
+  Roboto,
+  sans-serif;
+$fs-label: 15.2px;
+$fs-row: 16.8px;
+$fs-subtitle: 24px;
+
+// Elrendezés
+$bp-md: 768px;
+$max-width: 1040px;

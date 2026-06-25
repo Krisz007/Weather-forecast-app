@@ -1,0 +1,18 @@
+@use "variables" as *;
+
+// Asztali (és nagyobb) nézet
+@mixin md {
+  @media (min-width: $bp-md) {
+    @content;
+  }
+}
+
+// Üveg-hatású kártya
+@mixin glass {
+  background: $glass-bg;
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid $glass-border;
+  border-radius: $radius-xl;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.18);
+}
