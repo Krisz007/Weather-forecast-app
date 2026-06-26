@@ -1,0 +1,107 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-md;
+
+  &__backdrop {
+    position: absolute;
+    inset: 0;
+    background: $modal-overlay;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  &__panel {
+    @include glass;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+    width: 100%;
+    max-width: 440px;
+    padding: $space-lg;
+    animation: card-in 0.3s ease both;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 600;
+    color: $text-white;
+  }
+
+  &__close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    color: $text-white;
+    background: $white-10;
+    border: 1px solid $white-16;
+    border-radius: $radius-pill;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: $white-20;
+    }
+  }
+
+  &__results {
+    min-height: 60px;
+    max-height: 340px;
+    padding-right: 4px;
+    overflow-y: auto;
+    color: $text-white;
+    scrollbar-width: thin;
+    scrollbar-color: $white-30 transparent;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $white-30;
+      border-radius: $radius-pill;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: $white-50;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  &__state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $space-md;
+    text-align: center;
+    color: $text-muted;
+  }
+
+  &__error {
+    color: $danger;
+  }
+}

@@ -1,0 +1,21 @@
+@use "variables" as *;
+
+.forecast-list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-sm;
+
+  &__title {
+    margin-bottom: $space-xs;
+    font-size: $fs-label;
+    font-weight: 500;
+    color: $text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  &__rows {
+    display: flex;
+    flex-direction: column;
+  }
+}
