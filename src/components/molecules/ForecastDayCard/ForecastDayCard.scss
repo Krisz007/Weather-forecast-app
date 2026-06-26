@@ -1,0 +1,60 @@
+@use "variables" as *;
+
+.forecast-day {
+  display: grid;
+  grid-template-columns: 1.3fr auto 0.9fr 35.2px 1fr 35.2px;
+  align-items: center;
+  gap: $space-sm;
+  padding: 10px $space-sm;
+  border-radius: $radius;
+  font-size: $fs-row;
+  font-weight: 400;
+  color: $text-white;
+  transition: background 0.18s ease;
+
+  &:hover {
+    background: $white-08;
+  }
+
+  &__name {
+    color: $text-white;
+  }
+
+  &__icon {
+    display: inline-flex;
+    color: $text-white;
+  }
+
+  &__precip {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 14px;
+    color: $text-white;
+  }
+
+  &__min {
+    text-align: right;
+    color: $text-muted;
+  }
+
+  &__bar {
+    position: relative;
+    height: 6px;
+    border-radius: $radius-pill;
+    background: $white-24;
+    overflow: hidden;
+  }
+
+  &__bar-fill {
+    display: block;
+    height: 100%;
+    border-radius: $radius-pill;
+    background: linear-gradient(90deg, #ffd21f 0%, #ff2f18 100%);
+  }
+
+  &__max {
+    text-align: right;
+    font-weight: 600;
+  }
+}

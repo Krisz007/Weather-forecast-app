@@ -1,0 +1,75 @@
+@use "variables" as *;
+
+.current {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+
+  &__city {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    align-self: flex-start;
+    padding: 6px 14px;
+    background: $white-10;
+    border: 1px solid $white-16;
+    border-radius: $radius-pill;
+    color: $text-white;
+    font-size: $fs-label;
+    font-weight: 500;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: $white-20;
+    }
+  }
+
+  &__hero {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__temp {
+    font-size: 72px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+
+  &__condition {
+    font-size: $fs-subtitle;
+    font-weight: 400;
+    color: $text-white;
+  }
+
+  &__feels {
+    margin-top: $space-xs;
+    font-size: 15px;
+    color: $text-muted;
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-sm;
+
+    @media (min-width: 420px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
