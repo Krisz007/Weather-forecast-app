@@ -1,0 +1,110 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.layout {
+  position: relative;
+  min-height: 100vh;
+
+  &__bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: $bg-default;
+    transition: background 0.6s ease;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: $space-lg $space-md;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: $space-md;
+  }
+
+  &__main {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-lg;
+
+    @include md {
+      grid-template-columns: 1fr 1.15fr;
+      align-items: start;
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: $space-lg;
+  }
+
+  &__footer {
+    padding-top: $space-xl;
+    text-align: center;
+    color: $text-muted;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+.theme-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 64px;
+  height: 32px;
+  background: $white-16;
+  border: 1px solid $white-30;
+  border-radius: $radius-pill;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: $white-24;
+  }
+
+  &__ghost {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $white-50;
+
+    &--sun {
+      left: 8px;
+    }
+
+    &--moon {
+      right: 8px;
+    }
+  }
+
+  &__knob {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    color: #f5a623;
+    background: $text-white;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    transition:
+      transform 0.25s ease,
+      color 0.25s ease;
+  }
+
+  &.is-night &__knob {
+    transform: translateX(32px);
+    color: #3a4a6b;
+  }
+}

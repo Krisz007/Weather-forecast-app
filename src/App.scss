@@ -1,0 +1,17 @@
+@use "variables" as *;
+
+.app {
+  &__state,
+  &__hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $space-xl;
+    color: $text-muted;
+    text-align: center;
+  }
+
+  &__error {
+    color: $text-white;
+  }
+}
