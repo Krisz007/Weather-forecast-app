@@ -1,0 +1,19 @@
+@use "variables" as *;
+
+.button {
+  border: none;
+  border-radius: $radius-pill;
+  padding: 10px 18px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: opacity 0.15s ease;
+
+  &.primary {
+    background: $sky-top;
+    color: $text-white;
+  }
+
+  &:hover {
+    opacity: 0.88;
+  }
+}
