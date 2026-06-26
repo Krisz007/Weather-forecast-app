@@ -34,6 +34,7 @@ ami a következő napok csúcshőmérsékletét mutatja.
 - Recharts (grafikon)
 - react-icons (időjárás-ikonok)
 - SCSS (stílusok globális változókkal és mixinekkel)
+- Vitest + React Testing Library (tesztelés)
 
 ## Indítás
 
@@ -53,10 +54,13 @@ Ezután már csak meg kell nyitni a böngészőben a terminálban kiírt címet
 ### Egyéb hasznos parancsok
 
 ```bash
-npm run build     # éles build a dist/ mappába
-npm run preview   # az éles build helyi előnézete
-npm run lint      # ESLint-ellenőrzés
-npm run format    # kód formázása Prettierrel
+npm run build         # éles build a dist/ mappába
+npm run preview       # az éles build helyi előnézete
+npm run lint          # ESLint-ellenőrzés
+npm run format        # kód formázása Prettierrel
+npm test              # tesztek egyszeri lefuttatása
+npm run test:watch    # tesztek figyelő módban
+npm run test:coverage # lefedettségi riport
 ```
 
 ## Honnan jönnek az adatok?
@@ -71,6 +75,25 @@ Két Open-Meteo végpontot használ az app, egyikhez sem kell API-kulcs:
 A WMO időjáráskódokat magyar szövegre és ikonra a
 [src/utils/weatherCodes.js](src/utils/weatherCodes.js) fordítja le.
 
+## Tesztelés
+
+A teszteket [Vitest](https://vitest.dev/) futtatja, a komponensekhez pedig a
+[React Testing Library](https://testing-library.com/) társul. A teszteket a tesztelt fájl mellé
+vannak rakva (`*.test.js` / `*.test.jsx`).
+
+```bash
+npm test              # az összes teszt egyszeri lefuttatása
+npm run test:watch    # figyelő mód, fejlesztés közben kényelmes
+npm run test:coverage # lefedettségi riport
+```
+
+Amit lefedtem:
+
+- **utils** – a WMO-kódok fordítása, a dátumformázás és a localStorage-kezelés
+- **services** – az Open-Meteo API-hívások, mockolt `fetch`-csel
+- **store** – a Redux slice és az aszinkron lekérés különböző állapotai
+- **components** – az atom komponensek megjelenése és kattintásra adott válasza
+
 ## Hogy épül fel a projekt?
 
 A komponensek atomic design szerint vannak rendezve (atoms → molecules →
@@ -84,6 +107,7 @@ src/
 ├── utils/         # WMO-kódok, dátumformázás, localStorage
 ├── components/    # atoms / molecules / organisms / templates
 ├── styles/        # globális SCSS változók, mixinek, alapstílus
+├── test/          # Vitest setup (jest-dom, cleanup)
 ├── App.jsx
 └── main.jsx
 ```
